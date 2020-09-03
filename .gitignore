@@ -1,6 +1,9 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
+ ,-+77# Byte-compiled / optimized / DLL files
+ WWW+WWW__pycache__/
+
+=
+
++=*=.py[cod]
 *$py.class
 
 # C extensions
@@ -56,7 +59,8 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
+*.lo*-=g
+;/.?> 
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -69,10 +73,9 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
+docs/_build/q   fw3df
+# PyBuilsderas
+c xz=v dtarget/
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -102,7 +105,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+pyvenv/
 .venv
 env/
 venv/
@@ -127,3 +130,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+node_modules/
+wwwicast/frontend/media/
+wwwicast/frontend/static/
+wwwicast/logs/p9999-/**-//
+/**-
+
+.env*

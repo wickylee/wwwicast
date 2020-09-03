@@ -1,0 +1,130 @@
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+@import "~@blueprintjs/datetime/lib/css/blueprint-datetime.css";
+@import "colors";
+@import "mixins";
+@import "variables";
+//import apps style
+// @import "licpivot";
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: $fe-font-size;
+}
+
+//blueprint overwrite
+* button span {
+  pointer-events: none;
+}
+
+.app-root {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e6e9eb;
+  color: #11303d;
+
+  & .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: auto;
+    border-bottom: 1px solid $dark-gray2;
+
+    & .icastlogo {
+      margin-top: 4px;
+      width: auto;
+      height: 32px;
+    }
+
+    & .bp3-navbar.bp3-dark {
+      background-color: $dark-gray5;
+    }
+
+    & .navbar-divider {
+      margin-top: 0 5px;
+    }
+
+    & .bp3-navbar,
+    .bp3-navbar-group {
+      height: 40px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    & .appLink {
+      &:hover .bp3-icon {
+        color: $white;
+      }
+
+      & a {
+        font-size: 1.1em;
+        color: $gray3;
+      }
+
+      &:hover a {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
+    & .activeMenuItem {
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        left: 0px;
+        bottom: -5px;
+        background-color: chocolate;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  & .section-container {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    padding: 10px 15px 50px 15px;
+    z-index: 2;
+    overflow: auto;
+
+    & .content-block {
+      margin: 20px;
+      padding: 20px;
+      font-size: 3em;
+      @include ly-flex-sole;
+    }
+
+    
+    & .subscribe-block {
+      // margin: 20px;
+      padding: 20px;
+      // font-size: 3em;
+      @include ly-flex-sole;
+    }
+
+  }
+}
+// end app-container

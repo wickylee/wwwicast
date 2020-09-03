@@ -1,0 +1,101 @@
+@import "colors";
+
+
+//mixin for layout 
+@mixin margin-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+//layout for flex sole
+//$fd = row | row-reverse | column | column-reverse
+//$jc = justify-content: flex-start | flex-end | center | space-between | space-around
+//$ai = flex-start | flex-end | center | baseline | stretch
+@mixin ly-flex-sole($fd: row, $jc: center, $ai: center) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: nowrap;  
+  
+}
+
+@mixin ly-flex-many ($fd: row, $jc: center, $ai: center) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: wrap;
+}
+
+@mixin wui-box-shadow{
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+@mixin wui-section-container{
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  padding: 10px 15px 50px 15px;
+  z-index: 2;
+  overflow: auto;
+}
+
+@mixin intent-color($intentName) {
+  color: map-get($fe-intent-colors, $intentName);
+}
+
+@mixin position-all($position, $value) {
+  position: $position;
+  top: $value;
+  right: $value;
+  bottom: $value;
+  left: $value;
+}
+
+@mixin base-typography() {
+  text-transform: none;
+  line-height: $fe-line-height;
+  letter-spacing: 0;
+  font-size: $fe-font-size;
+  font-weight: 400;
+}
+
+@mixin running-typography() {
+  line-height: 1.5;
+  font-size: $fe-font-size;
+}
+
+@mixin heading-typography() {
+  color: $fe-heading-color;
+  font-weight: 600;
+
+  .#{$ns}-dark & {
+    color: $fe-dark-heading-color;
+  }
+}
+
+@mixin monospace-typography() {
+  text-transform: none;
+  font-family: $fe-font-family-monospace;
+}
+
+@mixin overflow-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+@mixin focus-outline($offset: 2px) {
+  outline: $fe-outline-color auto 2px;
+  outline-offset: $offset;
+  -moz-outline-radius: 6px;
+}
+
+@function border-shadow($alpha, $color: $black, $size: 1px) {
+  @return 0 0 0 $size rgba($color, $alpha);
+}
