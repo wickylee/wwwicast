@@ -1,6 +1,6 @@
  ,-+77# Byte-compiled / optimized / DLL files
  WWW+WWW__pycache__/
-
+__pycache__/
 =
 
 +=*=.py[cod]
@@ -137,3 +137,10 @@ wwwicast/logs/p9999-/**-//
 /**-
 
 .env*
+*.rar
+icast/frontend/static/
+icast/frontend/__pycache__
+icast/icast/__pycache__
+icast/licpivot/__pycache__
+icast/logs
+icast/frontend/static

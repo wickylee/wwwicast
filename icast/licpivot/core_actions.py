@@ -6,6 +6,11 @@ from rest_framework.response import Response
 from rest_access_policy import AccessPolicy
 from .models import Licpack, LicpackSerializer
 from django.conf import settings
+from smtplib import SMTPException
+from django.core.mail import EmailMultiAlternatives, send_mail
+from django.template.loader import get_template, render_to_string
+from django.template import Context, Template
+from django.utils.html import strip_tags
 import json
 import requests
 import logging
@@ -14,7 +19,7 @@ import logging
 class CoreAccessPolicy(AccessPolicy):
     statements = [
         {
-            "action": ["subscribePassage"],
+            "action": ["subscribePassage", "contactrequest"],
             "principal": "*",
             "effect": "allow",
         }
@@ -81,3 +86,40 @@ class CoreViewSet(viewsets.ModelViewSet):
            resp =  {"error":str(e)}
            self.logger.debug(resp)
            return resp
+
+    @action(["post"], detail=False)
+    def contactrequest(self, request):
+        print(f"request {request.data}")
+        sendEmailaction = { "action": self.sendContactRequestEmail(request.data)}
+        return Response(sendEmailaction, status=status.HTTP_200_OK)
+
+
+    def sendContactRequestEmail(self, requestData):
+        # send mail
+        subject = f"iCast Contact Request :  {requestData['subject']}"
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to = [settings.DEFAULT_FROM_EMAIL, "sales@icast.com.hk", "dannymak@ppn.com.hk"]
+        # to = ["wickylee@isignage.com.hk"]
+        context_data = {"name": requestData['name'],
+                         "email": requestData['email'],
+                         'subject': requestData['subject'],
+                         "message": requestData['message'],
+                        }
+
+        template = get_template(f"{settings.BASE_DIR}/frontend/templates/contact_request.html")
+        # context = Context(context_data)
+        body_html = template.render(context_data)
+        body_text = strip_tags(body_html)
+
+        # print(f"body_text: {body_text}")
+        msg = EmailMultiAlternatives(subject, body_text, from_email, to)
+        msg.attach_alternative(body_html, "text/html")
+
+        try:
+            msg.send()
+        except SMTPException as err:
+            self.logger.debug(
+                'There was an error sending an email: {}'.format(err))
+            return False
+
+        return True

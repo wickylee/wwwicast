@@ -1147,6 +1147,7 @@ class SubscriptionForm extends Component {
                 </div>
               }
             />
+            
             <Tab
               id="accountRegisterFlowIcon"
               title={

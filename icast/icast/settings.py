@@ -181,6 +181,19 @@ JWT_AUTH = {
     # 'JWT_AUTH_COOKIE': None,
 }
 
+DEFAULT_FROM_EMAIL = 'admin@icast.com.hk'
+#Email server
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#Office365 smtp server setting
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+EMAIL_HOST= 'smtp.office365.com'
+EMAIL_HOST_USER = 'admin@icast.com.hk'
+EMAIL_HOST_PASSWORD = 'iSign_PPN'
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_PORT= 587 # 587 -> TLS,  465 -> SSL
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

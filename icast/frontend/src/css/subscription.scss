@@ -826,6 +826,236 @@
   }
 }
 
+.step-form-content {
+  padding: 0px;
+  font-size: 1em;
+  width: 100%;
+
+  // & .subscribe-desc {
+  //   padding: 20px;
+  // }
+
+  // & .subscribe-fragment-header {
+  //   padding: 10px;
+  //   font-weight: bold;
+  //   color: $white;
+  //   font-size: 1.2em;
+  //   background-color: $depth-gray6;
+  //   @include ly-flex-sole(row, center, center);
+  // }
+
+  & .primarypackage-select {
+    padding: 10px;
+    @include ly-flex-sole(row, space-around, flex-start);
+    align-items: stretch;
+    & .segment{
+      margin: 10px;
+    }
+
+    & .seletec-licpack {
+      border: 2px solid $vermilion5;
+    }
+
+    & .licpack-card {
+      padding: 0px;
+      width: 30%;
+      border-radius: 10px;
+      overflow: hidden;
+      @include ly-flex-sole(column, space-between, stretch);
+
+      & .licpack-name {
+        flex: 1;
+        padding: 10px;
+        height: 50px;
+        color: $blue1;
+        font-size: 1.2em;
+        font-weight: bold;
+        background-color: $orange5;
+      }
+
+      & .licpack-desc {
+        flex: 2;
+        padding: 10px;
+        background-color: $mid-gray2;
+        font-size: 0.9em;
+        height: 100px;
+        @include ly-flex-sole(row, flex-start, center);
+      }
+
+      & .licpackprops {
+        flex: 3;
+        // padding: 4px;
+        & .licpackprop-row {
+          background-color: $mid-gray1;
+          border-top: 1px solid $mid-gray3;
+          padding: 10px;
+          @include ly-flex-sole(row, space-between, center);
+
+          & .licpackprop-name {
+            flex: 3;
+            @include ly-flex-sole(row, flex-start, center);
+            font-weight: bold;
+            color: $blue1;
+          }
+
+          & .licpackprop-qty {
+            flex: 1;
+            @include ly-flex-sole(row, center, center);
+            font-weight: bold;
+            color: $blue1;
+          }
+        }
+
+        & .licpackprop-row:nth-child(even) {
+          background-color: $mid-gray2;
+        }
+      }
+
+      & .licpack-footer {
+        flex: 2;
+        border-top: 1px solid $mid-gray6;
+
+        & .primarypackage-period {
+          padding: 10px;
+          height: 60px;
+          @include ly-flex-sole(row, space-between, center);
+
+          & .bp3-html-select select {
+            background-color: $mid-gray3;
+          }
+
+          & .primarypackage-price {
+            @include ly-flex-sole(row, center, baseline);
+            font-size: 1.8em;
+            color: $orange1;
+          }
+        }
+
+        & .primarypackage-select-indicate {
+          padding: 10px;
+          height: 50px;
+          background-color: $mid-gray3;
+          @include ly-flex-sole(row, center, center);
+        }
+      }
+    }
+  }
+
+  & .extrapack-select {
+    // padding: 10px;
+    & .extrapack-row {
+      margin: 2px;
+      border: 1px solid $mid-gray5;
+
+      & .extrapack-details {
+        @include ly-flex-sole(row, space-between, stretch);
+
+        & .extrapack-group-name {
+          padding: 5px;
+          @include ly-flex-sole(row, flex-start, center);
+          flex: 2;
+          font-weight: bold;
+          background-color: $mid-gray3;
+        }
+
+        & .extrapack-licprops {
+          flex: 2;
+          padding: 5px;
+          & .extrapack-licprops-row {
+            @include ly-flex-sole(row, flex-start, center);
+            margin: 4px 0px;
+          }
+        }
+
+        & .extrapack-period-price {
+          flex: 1;
+          border-left: 1px solid $mid-gray4;
+          @include ly-flex-sole(row, center, center);
+          & .period-price-label {
+            @include ly-flex-sole(row, space-around, center);
+            width: 90%;
+            padding: 10px;
+            background-color: $mid-gray2;
+            border-radius: 6px;
+          }
+        }
+
+        & .extrapack-select-option {
+          flex: 1;
+          border-left: 1px solid $mid-gray4;
+          padding: 10px;
+          @include ly-flex-sole(row, space-around, center);
+
+          & .extrapack-qty {
+            flex: 1;
+          }
+
+          & .extrapack-price {
+            @include ly-flex-sole(row, center, center);
+            flex: 1;
+            font-size: 1.5em;
+            color: $orange1;
+          }
+        }
+      }
+    }
+  }
+
+  & .subscribe-licapck-summary {
+    margin: 10px;
+    border: 2px solid $sepia5;
+    border-radius: 10px;
+    overflow: hidden;
+    @include ly-flex-sole(row, space-between, stretch);
+
+    & .service-licprop-list {
+      @include ly-flex-many(row, flex-start, flex-start);
+      flex: 3;
+      padding: 10;
+
+      & .subscribe-licprop-item {
+        @include ly-flex-sole(row, flex-start, center);
+        margin: 10px;
+        padding: 8px;
+        font-weight: bold;
+        background-color: $mid-gray2;
+        border-radius: 10px;
+        border: 1px solid $mid-gray4;
+
+        & .item-x {
+          margin: 0px 10px;
+          color: $mid-gray12;
+        }
+
+        & .item-qty {
+          padding: 5px;
+          border-radius: 10px;
+          font-size: 1.2em;
+          background-color: $mid-gray1;
+        }
+      }
+    }
+
+    & .subscribe-price-summary {
+      flex: 1;
+      background-color: $mid-gray3;
+      @include ly-flex-sole(column, center, center);
+
+      & .subscribe-period {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: $black;
+      }
+      & .subscribe-price {
+        @include ly-flex-sole(row, center, baseline);
+        font-size: 2em;
+        font-weight: bold;
+        color: $orange1;
+      }
+    }
+  }
+}
+
 .org-reg-from {
   border: 1px solid $mid-gray3;
   background-color: $mid-gray2;
@@ -865,6 +1095,15 @@
       & .bp3-text-small {
         color: $depth-gray12;
       }
+    }
+  }
+}
+
+.account-register{
+  & .bp3-popover-wrapper{
+    width: 100%;
+    & .bp3-popover-target{
+      width: 100%;
     }
   }
 }
